@@ -1,1 +1,67 @@
+<h2 class="sr-only">Visualization showing that AI value follows a bimodal distribution across users, not a single average — with 20% getting transformative value, 60% marginal, and 20% negative, while the mean sits misleadingly in the middle.</h2>
+<style>
+  .label { font-family: var(--font-sans); font-size: 12px; fill: var(--color-text-secondary); }
+  .label-bold { font-family: var(--font-sans); font-size: 13px; fill: var(--color-text-primary); font-weight: 500; }
+  .label-sm { font-family: var(--font-sans); font-size: 11px; fill: var(--color-text-tertiary); }
+  .axis-label { font-family: var(--font-sans); font-size: 11px; fill: var(--color-text-tertiary); }
+  .heading { font-family: var(--font-sans); font-size: 16px; fill: var(--color-text-primary); font-weight: 500; }
+</style>
+<svg width="100%" viewBox="0 0 680 420" role="img">
+  <title>AI value is a distribution, not a number</title>
+  <desc>A bimodal distribution chart showing that some users get negative value from AI, most get marginal value, and a smaller group gets transformative value. The average, shown as a dashed line, sits in the middle and describes nobody.</desc>
 
+  <text class="heading" x="40" y="36">Value is a distribution, not a number</text>
+  <text class="label" x="40" y="56" style="fill: var(--color-text-secondary)">The average describes nobody. Segment or it means nothing.</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="320" x2="640" y2="320" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+  <line x1="80" y1="90" x2="80" y2="320" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+
+  <!-- X axis labels -->
+  <text class="axis-label" x="120" y="340" text-anchor="middle">Negative</text>
+  <text class="axis-label" x="310" y="340" text-anchor="middle">Marginal</text>
+  <text class="axis-label" x="560" y="340" text-anchor="middle">Transformative</text>
+  <text class="label" x="360" y="360" text-anchor="middle" style="fill: var(--color-text-tertiary)">Realized value →</text>
+
+  <!-- Y axis label -->
+  <text class="axis-label" x="70" y="205" text-anchor="end" transform="rotate(-90 70 205)">Users</text>
+
+  <!-- Distribution curve - bimodal shape -->
+  <!-- Left hump (negative/low value - larger group) -->
+  <path d="M90,318 C120,316 140,310 170,280 C200,250 230,170 280,140 C310,125 340,130 370,160 C400,190 410,240 420,260" fill="none" stroke="var(--color-border-secondary)" stroke-width="0" />
+
+  <!-- Filled area under curve -->
+  <!-- Negative value zone (red-ish) -->
+  <path d="M90,318 C110,316 130,312 150,300 C170,280 185,250 200,240 L200,320 L90,320 Z" fill="#E24B4A" opacity="0.15"/>
+  <!-- Marginal value zone (amber) -->
+  <path d="M200,240 C230,210 260,155 310,130 C350,112 380,130 410,180 C430,210 440,260 450,290 L450,320 L200,320 Z" fill="#EF9F27" opacity="0.12"/>
+  <!-- Transformative value zone (blue) -->
+  <path d="M450,290 C470,270 490,230 520,190 C540,165 560,155 580,160 C600,170 615,210 625,260 C630,280 635,305 640,318 L640,320 L450,320 Z" fill="#0C66E4" opacity="0.18"/>
+
+  <!-- Distribution curve outline -->
+  <path d="M90,318 C110,316 130,312 150,300 C170,280 185,250 200,240 C230,210 260,155 310,130 C350,112 380,130 410,180 C430,210 440,260 450,290 C470,270 490,230 520,190 C540,165 560,155 580,160 C600,170 615,210 625,260 C630,280 635,305 640,318" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+
+  <!-- The misleading average line -->
+  <line x1="355" y1="85" x2="355" y2="320" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.7"/>
+  <text x="355" y="82" text-anchor="middle" style="font-family: var(--font-sans); font-size: 12px; fill: #E24B4A; font-weight: 500;">← The "average" →</text>
+
+  <!-- Cohort annotations -->
+  <!-- Negative value -->
+  <rect x="110" y="246" width="60" height="38" rx="6" fill="#E24B4A" opacity="0.1"/>
+  <text class="label-bold" x="140" y="262" text-anchor="middle" style="fill: #E24B4A">~20%</text>
+  <text class="label-sm" x="140" y="276" text-anchor="middle" style="fill: #A32D2D">Negative</text>
+
+  <!-- Marginal value -->
+  <rect x="290" y="136" width="60" height="38" rx="6" fill="#EF9F27" opacity="0.12"/>
+  <text class="label-bold" x="320" y="152" text-anchor="middle" style="fill: #BA7517">~60%</text>
+  <text class="label-sm" x="320" y="166" text-anchor="middle" style="fill: #854F0B">Marginal</text>
+
+  <!-- Transformative value -->
+  <rect x="530" y="160" width="80" height="38" rx="6" fill="#0C66E4" opacity="0.12"/>
+  <text class="label-bold" x="570" y="176" text-anchor="middle" style="fill: #0C66E4">~20%</text>
+  <text class="label-sm" x="570" y="190" text-anchor="middle" style="fill: #185FA5">Transformative</text>
+
+  <!-- Bottom insight -->
+  <rect x="120" y="375" width="440" height="32" rx="8" fill="var(--color-background-secondary)"/>
+  <text x="340" y="395" text-anchor="middle" style="font-family: var(--font-sans); font-size: 12px; fill: var(--color-text-secondary)">If you only report the mean, you're describing nobody in your user base.</text>
+</svg>
